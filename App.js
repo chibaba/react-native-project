@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import {  StyleSheet, View, } from "react-native";
+import { connect } from 'react-redux';
 
 import PlaceInput from "./src/components/PlaceInput/PlaceInput";
 import PlaceList from "./src/components/PlaceList/PlaceList";
-import PlaceDetail from "./src/componenets/PlaceDetail/PlaceDetail";
+   import PlaceDetail from "./src/components/PlaceDetail/PlaceDetail";
+   import { addplace, deselectPlace, deletePlace, selectPlace } from './src/store/actions/index';
 //import PlaceImage from "./src/assets/preety.png";
 
-export default class App extends Component {
+ class App extends Component {
   state = {
     places: [],
     selectedPlace: null
@@ -80,3 +82,20 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start"
   }
 });
+
+const mapStateToProps = state => {
+  return {
+    places:state.places.places,
+    selectedPlace: state.places.selectedPlace
+  };
+};
+
+const mapsDispatchToProps = dispatch => {
+  return {
+    onAddPlace: () => dispatch ( addPlace(name)),
+    ondeletePlace: () => dispatch( deletePlace()),
+    onselectedPlace: (key) => dispatch ( selectPlace (key)),
+    ondeselectPlace: () => dispatch ( onseleectPlace())
+  }
+}
+export default connect( mapsStateToProps, mapsDispatchToProps)(App)

@@ -1,9 +1,9 @@
 
-import React from 'react';
+import React, {Component} from 'react';
 import { Modal, View, Image, Text, Button, StyleSheet } from 'react-native';
 
 
-const placeDetail = props => {
+const PlaceDetail = props => {
   let modalContent = null;
   if (props.selectedPlace) {
     modalContent = (
@@ -16,7 +16,9 @@ const placeDetail = props => {
   }
 
   return (
-  <Modal onREquestClose={props.onModalClosed}visible={props.selectedPLace !== null} animationType="slide">
+  <Modal onRequestClose={props.onModalClosed}
+  visible={props.selectedPLace !== null}
+   animationType="slide">
     <View style={styles.modalContainer}>
       {modalContent}
       <View>
@@ -43,4 +45,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default placeDetail
+export default PlaceDetail

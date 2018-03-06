@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-const listItem = props => (
+const ListItem = props => (
   <TouchableOpacity onPress={props.onItemPressed}>
    <View style={styles.listItem}>
      <Image resizeMode="cover" source={props.placeImage} style={styles.placeImage}/>
@@ -25,4 +25,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default listItem;
+export default ListItem;

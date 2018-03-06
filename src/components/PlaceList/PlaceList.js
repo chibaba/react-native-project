@@ -1,10 +1,10 @@
-import React from "react";
+import React, {Component} from "react";
 
-import { StyleSheet, FlatList } from "react-native";
+import {  StyleSheet, FlatList } from "react-native";
 
 import ListItem from "../ListItem/ListItem";
 
-const placeList = props => {
+const PlaceList = props => {
   return;
   <FlatList
     style={styles.listContainer}
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PLaceList;
+export default PLaceList
